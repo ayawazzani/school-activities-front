@@ -34,29 +34,33 @@ const Calendar: React.FC = () => {
   };
 
   useEffect(() => {
-    // Initialize with some events
-    setEvents([
-      {
-        id: "1",
-        title: "Event Conf.",
-        start: new Date().toISOString().split("T")[0],
-        extendedProps: { calendar: "Danger" },
-      },
-      {
-        id: "2",
-        title: "Meeting",
-        start: new Date(Date.now() + 86400000).toISOString().split("T")[0],
-        extendedProps: { calendar: "Success" },
-      },
-      {
-        id: "3",
-        title: "Workshop",
-        start: new Date(Date.now() + 172800000).toISOString().split("T")[0],
-        end: new Date(Date.now() + 259200000).toISOString().split("T")[0],
-        extendedProps: { calendar: "Primary" },
-      },
-    ]);
-  }, []);
+  setEvents([
+    {
+      id: "1",
+      title: "Football Championship",
+      start: "2026-05-20",
+      extendedProps: { calendar: "Primary" },
+    },
+    {
+      id: "2",
+      title: "Basketball Tournament",
+      start: "2026-05-22",
+      extendedProps: { calendar: "Warning" },
+    },
+    {
+      id: "3",
+      title: "Science Club Session",
+      start: "2026-05-24",
+      extendedProps: { calendar: "Success" },
+    },
+    {
+      id: "4",
+      title: "Drama Club Show",
+      start: "2026-05-26",
+      extendedProps: { calendar: "Danger" },
+    },
+  ]);
+}, []);
 
   const handleDateSelect = (selectInfo: DateSelectArg) => {
     resetModalFields();
@@ -118,8 +122,8 @@ const Calendar: React.FC = () => {
   return (
     <>
       <PageMeta
-        title="React.js Calendar Dashboard | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is React.js Calendar Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
+        title="School Activities Calendar"
+        description="Planning calendar for school activities and events"
       />
       <div className="rounded-2xl border  border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
         <div className="custom-calendar">
@@ -156,15 +160,14 @@ const Calendar: React.FC = () => {
                 {selectedEvent ? "Edit Event" : "Add Event"}
               </h5>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Plan your next big moment: schedule or edit an event to stay on
-                track
+                Schedule school activities, sports events, clubs and competitions.
               </p>
             </div>
             <div className="mt-8">
               <div>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Event Title
+                    Activity Title
                   </label>
                   <input
                     id="event-title"

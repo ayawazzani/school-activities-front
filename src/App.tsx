@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
 import NotFound from "./pages/OtherPage/NotFound";
@@ -18,6 +18,19 @@ import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
+import Activities from "./pages/Activities";
+import AddActivity from "./pages/AddActivity";
+import Students from "./pages/Students";
+import Coaches from "./pages/Coaches";
+import Statistics from "./pages/Statistics";
+import EditActivity from "./pages/EditActivity";
+import AddCoach from "./pages/AddCoach";
+import EditCoach from "./pages/EditCoach";
+import ViewCoach from "./pages/ViewCoach";
+import ViewStudent from "./pages/ViewStudent";
+import EditStudent from "./pages/EditStudent";
+import ViewActivity from "./pages/ViewActivity";
+import AddStudent from "./pages/AddStudent";
 
 export default function App() {
   return (
@@ -28,10 +41,16 @@ export default function App() {
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/activities/add" element={<AddActivity />} />
+            <Route path="/students" element={<Students />} />
+            <Route path="/coaches" element={<Coaches />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/statistics" element={<Statistics />} />
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
-            <Route path="/calendar" element={<Calendar />} />
+           
             <Route path="/blank" element={<Blank />} />
 
             {/* Forms */}
@@ -59,6 +78,15 @@ export default function App() {
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
+          
+          <Route path="/activities/edit/:id" element={<EditActivity />} />
+          <Route path="/coaches/add" element={<AddCoach />} />
+          <Route path="/coaches/:id" element={<ViewCoach />} />
+          <Route path="/coaches/edit/:id" element={<EditCoach />} />
+          <Route path="/students/:id" element={<ViewStudent />} />
+          <Route path="/students/edit/:id" element={<EditStudent />} />
+          <Route path="/activities/:id" element={<ViewActivity />} />
+          <Route path="/students/add" element={<AddStudent />} />
         </Routes>
       </Router>
     </>
